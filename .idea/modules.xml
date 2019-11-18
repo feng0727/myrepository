@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/dlbanktar.iml" filepath="$PROJECT_DIR$/dlbanktar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dlbanktar.iml" filepath="$PROJECT_DIR$/dlbanktar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dlbanktar-bo/dlbanktar-bo.iml" filepath="$PROJECT_DIR$/dlbanktar-bo/dlbanktar-bo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dlbanktar-common/dlbanktar-common.iml" filepath="$PROJECT_DIR$/dlbanktar-common/dlbanktar-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dlbanktar-dao/dlbanktar-dao.iml" filepath="$PROJECT_DIR$/dlbanktar-dao/dlbanktar-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dlbanktar-front/dlbanktar-front.iml" filepath="$PROJECT_DIR$/dlbanktar-front/dlbanktar-front.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dlbanktar-service/dlbanktar-service.iml" filepath="$PROJECT_DIR$/dlbanktar-service/dlbanktar-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dlbanktar-service/dlbanktar-service.iml" filepath="$PROJECT_DIR$/dlbanktar-service/dlbanktar-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dlbanktar-service-interface/dlbanktar-service-interface.iml" filepath="$PROJECT_DIR$/dlbanktar-service-interface/dlbanktar-service-interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dlbanktar-tar/dlbanktar-tar.iml" filepath="$PROJECT_DIR$/dlbanktar-tar/dlbanktar-tar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dlbanktar-web/dlbanktar-web.iml" filepath="$PROJECT_DIR$/dlbanktar-web/dlbanktar-web.iml" />
+    </modules>
+  </component>
+</project>

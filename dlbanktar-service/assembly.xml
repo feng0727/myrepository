@@ -1,0 +1,78 @@
+<assembly
+        xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2 http://maven.apache.org/xsd/assembly-1.1.2.xsd">
+    <id>module</id>
+    <formats>
+        <format>tar.gz</format>
+    </formats>
+
+
+    <fileSets>
+        <fileSet>
+            <directory>target</directory>
+            <includes>
+                <include>*.jar</include>
+            </includes>
+            <excludes>
+                <exclude>*-sources.jar</exclude>
+            </excludes>
+            <outputDirectory>./dlbanktar-service/lib</outputDirectory>
+            <fileMode>0755</fileMode>
+        </fileSet>
+
+        <fileSet>
+            <lineEnding>unix</lineEnding>
+            <directory>src/main/resources/bin</directory>
+            <includes>
+                <include>*.sh</include>
+            </includes>
+            <outputDirectory>./dlbanktar-service/bin</outputDirectory>
+            <fileMode>0755</fileMode>
+        </fileSet>
+        <fileSet>
+            <directory>src/main/resources/</directory>
+            <includes>
+                <include>logback*.xml</include>
+            </includes>
+            <outputDirectory>./dlbanktar-service/conf</outputDirectory>
+            <fileMode>0755</fileMode>
+        </fileSet>
+        <fileSet>
+            <directory>src/main/resources/</directory>
+            <includes>
+                <include>dlbank-service.properties</include>
+            </includes>
+            <outputDirectory>.</outputDirectory>
+            <fileMode>0755</fileMode>
+        </fileSet>
+        <fileSet>
+            <lineEnding>unix</lineEnding>
+            <directory>src/main/resources/omp</directory>
+            <outputDirectory>.</outputDirectory>
+            <fileMode>0755</fileMode>
+        </fileSet>
+
+        <fileSet>
+            <lineEnding>unix</lineEnding>
+            <directory>target/util-shell</directory>
+            <outputDirectory>.</outputDirectory>
+            <includes>
+                <include>util.sh</include>
+                <include>getopt.sh</include>
+                <include>install.sh</include>
+                <include>crypt.sh</include>
+            </includes>
+            <fileMode>0755</fileMode>
+        </fileSet>
+
+        <fileSet>
+            <directory>target/util-shell</directory>
+            <outputDirectory>.</outputDirectory>
+            <includes>
+                <include>jq</include>
+            </includes>
+            <fileMode>0755</fileMode>
+        </fileSet>
+    </fileSets>
+</assembly>

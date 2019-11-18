@@ -1,0 +1,518 @@
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective settings
+[WARNING] 'servers.server.id' must be unique but found duplicate server with id uyun-snapshot @ D:\apache-maven-3.5.0\bin\..\conf\settings.xml
+[WARNING] 
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.demo:demo-service:jar:1.2.2-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.springframework.boot:spring-boot-maven-plugin is missing. @ line 101, column 21
+[WARNING] The expression ${build.directory} is deprecated. Please use ${project.build.directory} instead.
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.demo:demo-web:jar:1.2.2-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.springframework.boot:spring-boot-maven-plugin is missing. @ line 117, column 21
+[WARNING] The expression ${build.directory} is deprecated. Please use ${project.build.directory} instead.
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] demo
+[INFO] demo-service-interface
+[INFO] demo-dao
+[INFO] demo-common
+[INFO] demo-service
+[INFO] demo-bo
+[INFO] demo-web
+[INFO] demo-front
+[INFO] demo-tar
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Building demo 1.2.2-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ demo ---
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ demo ---
+[INFO] com.demo:demo:pom:1.2.2-SNAPSHOT
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Building demo-service-interface 1.2.2-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ demo-service-interface ---
+[INFO] Deleting D:\workspace\demo\demo-service-interface\target
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ demo-service-interface ---
+[INFO] com.demo:demo-service-interface:jar:1.2.2-SNAPSHOT
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Building demo-dao 1.2.2-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ demo-dao ---
+[INFO] Deleting D:\workspace\demo\demo-dao\target
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ demo-dao ---
+[INFO] com.demo:demo-dao:jar:1.2.2-SNAPSHOT
+[INFO] +- com.demo:demo-service-interface:jar:1.2.2-SNAPSHOT:compile
+[INFO] +- org.mybatis.spring.boot:mybatis-spring-boot-starter:jar:1.3.0:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter:jar:2.0.5.RELEASE:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot:jar:2.0.5.RELEASE:compile
+[INFO] |  |  |  \- org.springframework:spring-context:jar:5.0.9.RELEASE:compile
+[INFO] |  |  |     +- org.springframework:spring-aop:jar:5.0.9.RELEASE:compile
+[INFO] |  |  |     \- org.springframework:spring-expression:jar:5.0.9.RELEASE:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-autoconfigure:jar:2.0.5.RELEASE:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-starter-logging:jar:2.0.5.RELEASE:compile
+[INFO] |  |  |  +- ch.qos.logback:logback-classic:jar:1.2.3:compile
+[INFO] |  |  |  |  \- ch.qos.logback:logback-core:jar:1.2.3:compile
+[INFO] |  |  |  +- org.apache.logging.log4j:log4j-to-slf4j:jar:2.10.0:compile
+[INFO] |  |  |  |  \- org.apache.logging.log4j:log4j-api:jar:2.10.0:compile
+[INFO] |  |  |  \- org.slf4j:jul-to-slf4j:jar:1.7.25:compile
+[INFO] |  |  +- javax.annotation:javax.annotation-api:jar:1.3.2:compile
+[INFO] |  |  +- org.springframework:spring-core:jar:5.0.9.RELEASE:compile
+[INFO] |  |  |  \- org.springframework:spring-jcl:jar:5.0.9.RELEASE:compile
+[INFO] |  |  \- org.yaml:snakeyaml:jar:1.19:runtime
+[INFO] |  +- org.springframework.boot:spring-boot-starter-jdbc:jar:2.0.5.RELEASE:compile
+[INFO] |  |  +- com.zaxxer:HikariCP:jar:2.7.9:compile
+[INFO] |  |  |  \- org.slf4j:slf4j-api:jar:1.7.25:compile
+[INFO] |  |  \- org.springframework:spring-jdbc:jar:5.0.9.RELEASE:compile
+[INFO] |  |     +- org.springframework:spring-beans:jar:5.0.9.RELEASE:compile
+[INFO] |  |     \- org.springframework:spring-tx:jar:5.0.9.RELEASE:compile
+[INFO] |  +- org.mybatis.spring.boot:mybatis-spring-boot-autoconfigure:jar:1.3.0:compile
+[INFO] |  +- org.mybatis:mybatis:jar:3.4.1:compile
+[INFO] |  \- org.mybatis:mybatis-spring:jar:1.3.0:compile
+[INFO] +- com.alibaba:druid:jar:1.1.4:compile
+[INFO] |  +- com.alibaba:jconsole:jar:1.8.0:system
+[INFO] |  \- com.alibaba:tools:jar:1.8.0:system
+[INFO] +- com.github.pagehelper:pagehelper-spring-boot-starter:jar:1.2.3:compile
+[INFO] |  +- com.github.pagehelper:pagehelper-spring-boot-autoconfigure:jar:1.2.3:compile
+[INFO] |  \- com.github.pagehelper:pagehelper:jar:5.1.2:compile
+[INFO] |     \- com.github.jsqlparser:jsqlparser:jar:1.0:compile
+[INFO] +- javax.transaction:jta:jar:1.1:compile
+[INFO] \- mysql:mysql-connector-java:jar:5.1.44:compile
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Building demo-common 1.2.2-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+Downloading: http://www.uyunsoft.cn/nexus/content/repositories/releases/uyun/bird/tenant/tenant/2.0.6-SNAPSHOT/maven-metadata.xml
+[WARNING] Could not transfer metadata uyun.bird.tenant:tenant:2.0.6-SNAPSHOT/maven-metadata.xml from/to uyun-release (http://www.uyunsoft.cn/nexus/content/repositories/releases/): Not authorized , ReasonPhrase:Unauthorized.
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ demo-common ---
+[INFO] Deleting D:\workspace\demo\demo-common\target
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ demo-common ---
+[INFO] com.demo:demo-common:jar:1.2.2-SNAPSHOT
+[INFO] +- org.springframework.boot:spring-boot-starter:jar:2.0.5.RELEASE:compile
+[INFO] |  +- org.springframework.boot:spring-boot:jar:2.0.5.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-context:jar:5.0.9.RELEASE:compile
+[INFO] |  |     +- org.springframework:spring-aop:jar:5.0.9.RELEASE:compile
+[INFO] |  |     +- org.springframework:spring-beans:jar:5.0.9.RELEASE:compile
+[INFO] |  |     \- org.springframework:spring-expression:jar:5.0.9.RELEASE:compile
+[INFO] |  +- org.springframework.boot:spring-boot-autoconfigure:jar:2.0.5.RELEASE:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-logging:jar:2.0.5.RELEASE:compile
+[INFO] |  |  +- ch.qos.logback:logback-classic:jar:1.2.3:compile
+[INFO] |  |  |  \- ch.qos.logback:logback-core:jar:1.2.3:compile
+[INFO] |  |  +- org.apache.logging.log4j:log4j-to-slf4j:jar:2.10.0:compile
+[INFO] |  |  |  \- org.apache.logging.log4j:log4j-api:jar:2.10.0:compile
+[INFO] |  |  \- org.slf4j:jul-to-slf4j:jar:1.7.25:compile
+[INFO] |  +- javax.annotation:javax.annotation-api:jar:1.3.2:compile
+[INFO] |  +- org.springframework:spring-core:jar:5.0.9.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-jcl:jar:5.0.9.RELEASE:compile
+[INFO] |  \- org.yaml:snakeyaml:jar:1.19:runtime
+[INFO] +- uyun.whale:common-encryption:jar:1.0.1:compile
+[INFO] |  +- org.bouncycastle:bcprov-jdk15on:jar:1.57:compile
+[INFO] |  \- org.apache.httpcomponents:httpclient:jar:4.5.6:compile
+[INFO] |     +- org.apache.httpcomponents:httpcore:jar:4.4.10:compile
+[INFO] |     \- commons-codec:commons-codec:jar:1.11:compile
+[INFO] +- uyun.whale:common-util:jar:1.0.1:compile
+[INFO] |  \- org.slf4j:slf4j-api:jar:1.7.25:compile
+[INFO] +- com.baidu.disconf:disconf-client:jar:2.6.36:compile
+[INFO] |  +- com.baidu.disconf:disconf-core:jar:2.6.36:compile
+[INFO] |  +- org.apache.zookeeper:zookeeper:jar:3.3.6:compile
+[INFO] |  |  +- log4j:log4j:jar:1.2.15:compile
+[INFO] |  |  |  \- javax.mail:mail:jar:1.4:compile
+[INFO] |  |  |     \- javax.activation:activation:jar:1.1:compile
+[INFO] |  |  \- jline:jline:jar:0.9.94:compile
+[INFO] |  |     \- junit:junit:jar:4.12:compile
+[INFO] |  |        \- org.hamcrest:hamcrest-core:jar:1.3:compile
+[INFO] |  +- commons-io:commons-io:jar:1.4:compile
+[INFO] |  +- com.google.code.gson:gson:jar:2.8.5:compile
+[INFO] |  +- org.apache.commons:commons-lang3:jar:3.7:compile
+[INFO] |  +- org.reflections:reflections:jar:0.9.9-RC1:compile
+[INFO] |  |  +- org.javassist:javassist:jar:3.21.0-GA:compile
+[INFO] |  |  \- dom4j:dom4j:jar:1.6.1:compile
+[INFO] |  |     \- xml-apis:xml-apis:jar:1.4.01:compile
+[INFO] |  +- com.google.guava:guava:jar:19.0-rc2:compile
+[INFO] |  \- org.aspectj:aspectjtools:jar:1.8.13:compile
+[INFO] +- uyun.bird.tenant:tenant-api:jar:2.0.6:compile
+[INFO] |  \- javax.validation:validation-api:jar:2.0.1.Final:compile
+[INFO] +- uyun.whale:i18n-api:jar:2.0.0:compile
+[INFO] +- uyun.whale:i18n-impl:jar:2.0.0:compile
+[INFO] +- org.projectlombok:lombok:jar:1.16.18:compile
+[INFO] \- com.alibaba:fastjson:jar:1.2.48:compile
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Building demo-service 1.2.2-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ demo-service ---
+[INFO] Deleting D:\workspace\demo\demo-service\target
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ demo-service ---
+[INFO] com.demo:demo-service:jar:1.2.2-SNAPSHOT
+[INFO] +- org.springframework.boot:spring-boot-starter-test:jar:2.0.5.RELEASE:test
+[INFO] |  +- org.springframework.boot:spring-boot-test:jar:2.0.5.RELEASE:test
+[INFO] |  +- org.springframework.boot:spring-boot-test-autoconfigure:jar:2.0.5.RELEASE:test
+[INFO] |  +- com.jayway.jsonpath:json-path:jar:2.4.0:test
+[INFO] |  |  +- net.minidev:json-smart:jar:2.3:test
+[INFO] |  |  |  \- net.minidev:accessors-smart:jar:1.2:test
+[INFO] |  |  |     \- org.ow2.asm:asm:jar:5.0.4:test
+[INFO] |  |  \- org.slf4j:slf4j-api:jar:1.7.25:compile
+[INFO] |  +- junit:junit:jar:4.12:compile
+[INFO] |  +- org.assertj:assertj-core:jar:3.9.1:test
+[INFO] |  +- org.mockito:mockito-core:jar:2.15.0:test
+[INFO] |  |  +- net.bytebuddy:byte-buddy:jar:1.7.11:test
+[INFO] |  |  +- net.bytebuddy:byte-buddy-agent:jar:1.7.11:test
+[INFO] |  |  \- org.objenesis:objenesis:jar:2.6:test
+[INFO] |  +- org.hamcrest:hamcrest-core:jar:1.3:compile
+[INFO] |  +- org.hamcrest:hamcrest-library:jar:1.3:test
+[INFO] |  +- org.skyscreamer:jsonassert:jar:1.5.0:test
+[INFO] |  |  \- com.vaadin.external.google:android-json:jar:0.0.20131108.vaadin1:test
+[INFO] |  +- org.springframework:spring-core:jar:5.0.9.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-jcl:jar:5.0.9.RELEASE:compile
+[INFO] |  +- org.springframework:spring-test:jar:5.0.9.RELEASE:test
+[INFO] |  \- org.xmlunit:xmlunit-core:jar:2.5.1:test
+[INFO] +- com.alibaba:spring-boot-starter-dubbo:jar:1.0.0:compile
+[INFO] |  +- org.springframework.boot:spring-boot-autoconfigure:jar:2.0.5.RELEASE:compile
+[INFO] |  +- com.alibaba:dubbo:jar:2.8.4.180122:compile
+[INFO] |  |  +- org.springframework:spring-context:jar:5.0.9.RELEASE:compile
+[INFO] |  |  +- aopalliance:aopalliance:jar:1.0:compile
+[INFO] |  |  +- org.springframework:spring-expression:jar:5.0.9.RELEASE:compile
+[INFO] |  |  +- io.netty:netty:jar:3.7.0.Final:compile
+[INFO] |  |  +- log4j:log4j:jar:1.2.16:compile
+[INFO] |  |  +- org.javassist:javassist:jar:3.21.0-GA:compile
+[INFO] |  |  +- org.eclipse.jetty:jetty-security:jar:9.4.12.v20180830:compile
+[INFO] |  |  +- com.netflix.hystrix:hystrix-core:jar:1.5.8:compile
+[INFO] |  |  +- com.netflix.archaius:archaius-core:jar:0.4.1:compile
+[INFO] |  |  +- commons-configuration:commons-configuration:jar:1.8:compile
+[INFO] |  |  +- commons-lang:commons-lang:jar:2.6:compile
+[INFO] |  |  +- io.reactivex:rxjava:jar:1.3.8:compile
+[INFO] |  |  +- org.hdrhistogram:HdrHistogram:jar:2.1.9:compile
+[INFO] |  |  +- com.netflix.hystrix:hystrix-metrics-event-stream:jar:1.5.8:compile
+[INFO] |  |  +- com.netflix.hystrix:hystrix-serialization:jar:1.5.8:runtime
+[INFO] |  |  +- com.fasterxml.jackson.module:jackson-module-afterburner:jar:2.9.6:runtime
+[INFO] |  |  +- com.fasterxml.jackson.core:jackson-core:jar:2.9.6:runtime
+[INFO] |  |  +- com.fasterxml.jackson.core:jackson-databind:jar:2.9.6:runtime
+[INFO] |  |  +- com.fasterxml.jackson.core:jackson-annotations:jar:2.9.0:runtime
+[INFO] |  |  +- com.fasterxml.jackson.dataformat:jackson-dataformat-cbor:jar:2.9.6:runtime
+[INFO] |  |  +- javax.servlet:javax.servlet-api:jar:3.1.0:compile
+[INFO] |  |  +- org.springframework:spring-web:jar:5.0.9.RELEASE:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpclient:jar:4.5.6:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpcore:jar:4.4.10:compile
+[INFO] |  |  +- commons-logging:commons-logging:jar:1.1.1:compile
+[INFO] |  |  +- commons-codec:commons-codec:jar:1.11:compile
+[INFO] |  |  +- commons-pool:commons-pool:jar:1.6:compile
+[INFO] |  |  +- org.apache.curator:curator-framework:jar:2.5.0:compile
+[INFO] |  |  +- org.apache.curator:curator-client:jar:2.5.0:compile
+[INFO] |  |  \- com.google.guava:guava:jar:16.0.1:compile
+[INFO] |  +- de.javakaffee:kryo-serializers:jar:0.26:compile
+[INFO] |  |  \- com.esotericsoftware.kryo:kryo:jar:2.22:compile
+[INFO] |  \- com.101tec:zkclient:jar:0.8:compile
+[INFO] |     \- org.apache.zookeeper:zookeeper:jar:3.4.6:compile
+[INFO] |        \- jline:jline:jar:0.9.94:compile
+[INFO] +- com.baidu.disconf:spring-boot-starter-disconf:jar:1.0.0:compile
+[INFO] |  +- uyun.whale:common-encryption:jar:1.0.1:compile
+[INFO] |  |  \- org.bouncycastle:bcprov-jdk15on:jar:1.57:compile
+[INFO] |  +- uyun.whale:common-util:jar:1.0.1:compile
+[INFO] |  +- com.baidu.disconf:disconf-client:jar:2.6.36:compile
+[INFO] |  |  +- com.baidu.disconf:disconf-core:jar:2.6.36:compile
+[INFO] |  |  +- commons-io:commons-io:jar:1.4:compile
+[INFO] |  |  +- com.google.code.gson:gson:jar:2.8.5:compile
+[INFO] |  |  +- org.apache.commons:commons-lang3:jar:3.7:compile
+[INFO] |  |  +- org.reflections:reflections:jar:0.9.9-RC1:compile
+[INFO] |  |  |  \- dom4j:dom4j:jar:1.6.1:compile
+[INFO] |  |  |     \- xml-apis:xml-apis:jar:1.4.01:compile
+[INFO] |  |  \- org.aspectj:aspectjtools:jar:1.8.13:compile
+[INFO] |  +- uyun.bird.tenant:tenant-api:jar:2.0.6:compile
+[INFO] |  |  \- javax.validation:validation-api:jar:2.0.1.Final:compile
+[INFO] |  +- com.alibaba:druid:jar:1.1.4:compile
+[INFO] |  |  +- com.alibaba:jconsole:jar:1.8.0:system
+[INFO] |  |  \- com.alibaba:tools:jar:1.8.0:system
+[INFO] |  \- org.springframework.boot:spring-boot-configuration-processor:jar:2.0.5.RELEASE:compile
+[INFO] +- org.springframework.boot:spring-boot-starter:jar:2.0.5.RELEASE:compile
+[INFO] |  +- org.springframework.boot:spring-boot:jar:2.0.5.RELEASE:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-logging:jar:2.0.5.RELEASE:compile
+[INFO] |  |  +- ch.qos.logback:logback-classic:jar:1.2.3:compile
+[INFO] |  |  |  \- ch.qos.logback:logback-core:jar:1.2.3:compile
+[INFO] |  |  +- org.apache.logging.log4j:log4j-to-slf4j:jar:2.10.0:compile
+[INFO] |  |  |  \- org.apache.logging.log4j:log4j-api:jar:2.10.0:compile
+[INFO] |  |  \- org.slf4j:jul-to-slf4j:jar:1.7.25:compile
+[INFO] |  +- javax.annotation:javax.annotation-api:jar:1.3.2:compile
+[INFO] |  \- org.yaml:snakeyaml:jar:1.19:runtime
+[INFO] +- org.springframework:spring-aop:jar:5.0.9.RELEASE:compile
+[INFO] |  \- org.springframework:spring-beans:jar:5.0.9.RELEASE:compile
+[INFO] +- com.demo:demo-dao:jar:1.2.2-SNAPSHOT:compile
+[INFO] |  +- com.demo:demo-service-interface:jar:1.2.2-SNAPSHOT:compile
+[INFO] |  +- org.mybatis.spring.boot:mybatis-spring-boot-starter:jar:1.3.0:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-starter-jdbc:jar:2.0.5.RELEASE:compile
+[INFO] |  |  |  +- com.zaxxer:HikariCP:jar:2.7.9:compile
+[INFO] |  |  |  \- org.springframework:spring-jdbc:jar:5.0.9.RELEASE:compile
+[INFO] |  |  |     \- org.springframework:spring-tx:jar:5.0.9.RELEASE:compile
+[INFO] |  |  +- org.mybatis.spring.boot:mybatis-spring-boot-autoconfigure:jar:1.3.0:compile
+[INFO] |  |  +- org.mybatis:mybatis:jar:3.4.1:compile
+[INFO] |  |  \- org.mybatis:mybatis-spring:jar:1.3.0:compile
+[INFO] |  +- com.github.pagehelper:pagehelper-spring-boot-starter:jar:1.2.3:compile
+[INFO] |  |  +- com.github.pagehelper:pagehelper-spring-boot-autoconfigure:jar:1.2.3:compile
+[INFO] |  |  \- com.github.pagehelper:pagehelper:jar:5.1.2:compile
+[INFO] |  |     \- com.github.jsqlparser:jsqlparser:jar:1.0:compile
+[INFO] |  +- javax.transaction:jta:jar:1.1:compile
+[INFO] |  \- mysql:mysql-connector-java:jar:5.1.44:compile
+[INFO] \- com.demo:demo-common:jar:1.2.2-SNAPSHOT:compile
+[INFO]    +- uyun.whale:i18n-api:jar:2.0.0:compile
+[INFO]    +- uyun.whale:i18n-impl:jar:2.0.0:compile
+[INFO]    +- org.projectlombok:lombok:jar:1.16.22:compile
+[INFO]    \- com.alibaba:fastjson:jar:1.2.48:compile
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Building demo-bo 1.2.2-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ demo-bo ---
+[INFO] Deleting D:\workspace\demo\demo-bo\target
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ demo-bo ---
+[INFO] com.demo:demo-bo:jar:1.2.2-SNAPSHOT
+[INFO] +- org.springframework.boot:spring-boot-starter:jar:2.0.5.RELEASE:compile
+[INFO] |  +- org.springframework.boot:spring-boot:jar:2.0.5.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-context:jar:5.0.9.RELEASE:compile
+[INFO] |  +- org.springframework.boot:spring-boot-autoconfigure:jar:2.0.5.RELEASE:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-logging:jar:2.0.5.RELEASE:compile
+[INFO] |  |  +- ch.qos.logback:logback-classic:jar:1.2.3:compile
+[INFO] |  |  |  \- ch.qos.logback:logback-core:jar:1.2.3:compile
+[INFO] |  |  +- org.apache.logging.log4j:log4j-to-slf4j:jar:2.10.0:compile
+[INFO] |  |  |  \- org.apache.logging.log4j:log4j-api:jar:2.10.0:compile
+[INFO] |  |  \- org.slf4j:jul-to-slf4j:jar:1.7.25:compile
+[INFO] |  +- javax.annotation:javax.annotation-api:jar:1.3.2:compile
+[INFO] |  +- org.springframework:spring-core:jar:5.0.9.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-jcl:jar:5.0.9.RELEASE:compile
+[INFO] |  \- org.yaml:snakeyaml:jar:1.19:runtime
+[INFO] +- com.demo:demo-service-interface:jar:1.2.2-SNAPSHOT:compile
+[INFO] +- com.demo:demo-common:jar:1.2.2-SNAPSHOT:compile
+[INFO] |  +- uyun.whale:common-encryption:jar:1.0.1:compile
+[INFO] |  |  +- org.bouncycastle:bcprov-jdk15on:jar:1.57:compile
+[INFO] |  |  \- org.apache.httpcomponents:httpclient:jar:4.5.6:compile
+[INFO] |  +- uyun.whale:common-util:jar:1.0.1:compile
+[INFO] |  |  \- org.slf4j:slf4j-api:jar:1.7.25:compile
+[INFO] |  +- com.baidu.disconf:disconf-client:jar:2.6.36:compile
+[INFO] |  |  +- com.baidu.disconf:disconf-core:jar:2.6.36:compile
+[INFO] |  |  +- org.apache.zookeeper:zookeeper:jar:3.3.6:compile
+[INFO] |  |  |  \- jline:jline:jar:0.9.94:compile
+[INFO] |  |  |     \- junit:junit:jar:4.12:compile
+[INFO] |  |  |        \- org.hamcrest:hamcrest-core:jar:1.3:compile
+[INFO] |  |  +- commons-io:commons-io:jar:1.4:compile
+[INFO] |  |  +- com.google.code.gson:gson:jar:2.8.5:compile
+[INFO] |  |  +- org.apache.commons:commons-lang3:jar:3.7:compile
+[INFO] |  |  +- org.reflections:reflections:jar:0.9.9-RC1:compile
+[INFO] |  |  |  \- dom4j:dom4j:jar:1.6.1:compile
+[INFO] |  |  |     \- xml-apis:xml-apis:jar:1.4.01:compile
+[INFO] |  |  +- com.google.guava:guava:jar:19.0-rc2:compile
+[INFO] |  |  \- org.aspectj:aspectjtools:jar:1.8.13:compile
+[INFO] |  +- uyun.bird.tenant:tenant-api:jar:2.0.6:compile
+[INFO] |  |  \- javax.validation:validation-api:jar:2.0.1.Final:compile
+[INFO] |  +- uyun.whale:i18n-api:jar:2.0.0:compile
+[INFO] |  +- uyun.whale:i18n-impl:jar:2.0.0:compile
+[INFO] |  +- org.projectlombok:lombok:jar:1.16.22:compile
+[INFO] |  \- com.alibaba:fastjson:jar:1.2.48:compile
+[INFO] \- com.alibaba:spring-boot-starter-dubbo:jar:1.0.0:compile
+[INFO]    +- com.alibaba:dubbo:jar:2.8.4.180122:compile
+[INFO]    |  +- org.springframework:spring-beans:jar:5.0.9.RELEASE:compile
+[INFO]    |  +- org.springframework:spring-aop:jar:5.0.9.RELEASE:compile
+[INFO]    |  +- aopalliance:aopalliance:jar:1.0:compile
+[INFO]    |  +- org.springframework:spring-expression:jar:5.0.9.RELEASE:compile
+[INFO]    |  +- io.netty:netty:jar:3.7.0.Final:compile
+[INFO]    |  +- log4j:log4j:jar:1.2.16:compile
+[INFO]    |  +- org.javassist:javassist:jar:3.21.0-GA:compile
+[INFO]    |  +- org.eclipse.jetty:jetty-servlet:jar:9.3.8.v20160314:compile
+[INFO]    |  +- org.eclipse.jetty:jetty-security:jar:9.4.12.v20180830:compile
+[INFO]    |  +- com.netflix.hystrix:hystrix-core:jar:1.5.8:compile
+[INFO]    |  +- com.netflix.archaius:archaius-core:jar:0.4.1:compile
+[INFO]    |  +- commons-configuration:commons-configuration:jar:1.8:compile
+[INFO]    |  +- commons-lang:commons-lang:jar:2.6:compile
+[INFO]    |  +- io.reactivex:rxjava:jar:1.3.8:compile
+[INFO]    |  +- org.hdrhistogram:HdrHistogram:jar:2.1.9:compile
+[INFO]    |  +- com.netflix.hystrix:hystrix-metrics-event-stream:jar:1.5.8:compile
+[INFO]    |  +- com.netflix.hystrix:hystrix-serialization:jar:1.5.8:runtime
+[INFO]    |  +- com.fasterxml.jackson.module:jackson-module-afterburner:jar:2.9.6:runtime
+[INFO]    |  +- com.fasterxml.jackson.core:jackson-core:jar:2.9.6:runtime
+[INFO]    |  +- com.fasterxml.jackson.core:jackson-databind:jar:2.9.6:runtime
+[INFO]    |  +- com.fasterxml.jackson.core:jackson-annotations:jar:2.9.0:runtime
+[INFO]    |  +- com.fasterxml.jackson.dataformat:jackson-dataformat-cbor:jar:2.9.6:runtime
+[INFO]    |  +- javax.servlet:javax.servlet-api:jar:3.1.0:compile
+[INFO]    |  +- org.springframework:spring-web:jar:5.0.9.RELEASE:compile
+[INFO]    |  +- org.apache.httpcomponents:httpcore:jar:4.4.10:compile
+[INFO]    |  +- commons-logging:commons-logging:jar:1.1.1:compile
+[INFO]    |  +- commons-codec:commons-codec:jar:1.11:compile
+[INFO]    |  +- commons-pool:commons-pool:jar:1.6:compile
+[INFO]    |  +- org.apache.curator:curator-framework:jar:2.5.0:compile
+[INFO]    |  \- org.apache.curator:curator-client:jar:2.5.0:compile
+[INFO]    +- com.baidu.disconf:spring-boot-starter-disconf:jar:1.0.0:compile
+[INFO]    |  +- com.alibaba:druid:jar:1.1.4:compile
+[INFO]    |  |  +- com.alibaba:jconsole:jar:1.8.0:system
+[INFO]    |  |  \- com.alibaba:tools:jar:1.8.0:system
+[INFO]    |  \- org.springframework.boot:spring-boot-configuration-processor:jar:2.0.5.RELEASE:compile
+[INFO]    +- de.javakaffee:kryo-serializers:jar:0.26:compile
+[INFO]    |  \- com.esotericsoftware.kryo:kryo:jar:2.22:compile
+[INFO]    \- com.101tec:zkclient:jar:0.8:compile
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Building demo-web 1.2.2-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ demo-web ---
+[INFO] Deleting D:\workspace\demo\demo-web\target
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ demo-web ---
+[INFO] com.demo:demo-web:jar:1.2.2-SNAPSHOT
+[INFO] +- org.springframework.boot:spring-boot-starter:jar:2.0.5.RELEASE:compile
+[INFO] |  +- org.springframework.boot:spring-boot:jar:2.0.5.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-context:jar:5.0.9.RELEASE:compile
+[INFO] |  +- org.springframework.boot:spring-boot-autoconfigure:jar:2.0.5.RELEASE:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-logging:jar:2.0.5.RELEASE:compile
+[INFO] |  |  +- ch.qos.logback:logback-classic:jar:1.2.3:compile
+[INFO] |  |  |  \- ch.qos.logback:logback-core:jar:1.2.3:compile
+[INFO] |  |  +- org.apache.logging.log4j:log4j-to-slf4j:jar:2.10.0:compile
+[INFO] |  |  |  \- org.apache.logging.log4j:log4j-api:jar:2.10.0:compile
+[INFO] |  |  \- org.slf4j:jul-to-slf4j:jar:1.7.25:compile
+[INFO] |  +- javax.annotation:javax.annotation-api:jar:1.3.2:compile
+[INFO] |  +- org.springframework:spring-core:jar:5.0.9.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-jcl:jar:5.0.9.RELEASE:compile
+[INFO] |  \- org.yaml:snakeyaml:jar:1.19:runtime
+[INFO] +- com.alibaba:spring-boot-starter-dubbo:jar:1.0.0:compile
+[INFO] |  +- com.alibaba:dubbo:jar:2.8.4.180122:compile
+[INFO] |  |  +- aopalliance:aopalliance:jar:1.0:compile
+[INFO] |  |  +- org.springframework:spring-expression:jar:5.0.9.RELEASE:compile
+[INFO] |  |  +- io.netty:netty:jar:3.7.0.Final:compile
+[INFO] |  |  +- log4j:log4j:jar:1.2.16:compile
+[INFO] |  |  +- org.javassist:javassist:jar:3.21.0-GA:compile
+[INFO] |  |  +- org.eclipse.jetty:jetty-security:jar:9.4.12.v20180830:compile
+[INFO] |  |  +- com.netflix.hystrix:hystrix-core:jar:1.5.8:compile
+[INFO] |  |  +- org.slf4j:slf4j-api:jar:1.7.25:compile
+[INFO] |  |  +- com.netflix.archaius:archaius-core:jar:0.4.1:compile
+[INFO] |  |  +- commons-configuration:commons-configuration:jar:1.8:compile
+[INFO] |  |  +- commons-lang:commons-lang:jar:2.6:compile
+[INFO] |  |  +- io.reactivex:rxjava:jar:1.3.8:compile
+[INFO] |  |  +- org.hdrhistogram:HdrHistogram:jar:2.1.9:compile
+[INFO] |  |  +- com.netflix.hystrix:hystrix-metrics-event-stream:jar:1.5.8:compile
+[INFO] |  |  +- com.netflix.hystrix:hystrix-serialization:jar:1.5.8:runtime
+[INFO] |  |  +- com.fasterxml.jackson.module:jackson-module-afterburner:jar:2.9.6:runtime
+[INFO] |  |  +- com.fasterxml.jackson.core:jackson-core:jar:2.9.6:compile
+[INFO] |  |  +- com.fasterxml.jackson.core:jackson-databind:jar:2.9.6:compile
+[INFO] |  |  +- com.fasterxml.jackson.core:jackson-annotations:jar:2.9.0:compile
+[INFO] |  |  +- com.fasterxml.jackson.dataformat:jackson-dataformat-cbor:jar:2.9.6:runtime
+[INFO] |  |  +- javax.servlet:javax.servlet-api:jar:3.1.0:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpclient:jar:4.5.6:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpcore:jar:4.4.10:compile
+[INFO] |  |  +- commons-logging:commons-logging:jar:1.1.1:compile
+[INFO] |  |  +- commons-codec:commons-codec:jar:1.11:compile
+[INFO] |  |  +- commons-pool:commons-pool:jar:1.6:compile
+[INFO] |  |  +- org.apache.curator:curator-framework:jar:2.5.0:compile
+[INFO] |  |  +- org.apache.curator:curator-client:jar:2.5.0:compile
+[INFO] |  |  \- com.google.guava:guava:jar:16.0.1:compile
+[INFO] |  +- de.javakaffee:kryo-serializers:jar:0.26:compile
+[INFO] |  |  \- com.esotericsoftware.kryo:kryo:jar:2.22:compile
+[INFO] |  \- com.101tec:zkclient:jar:0.8:compile
+[INFO] |     \- org.apache.zookeeper:zookeeper:jar:3.4.6:compile
+[INFO] |        \- jline:jline:jar:0.9.94:compile
+[INFO] |           \- junit:junit:jar:4.12:compile
+[INFO] |              \- org.hamcrest:hamcrest-core:jar:1.3:compile
+[INFO] +- com.baidu.disconf:spring-boot-starter-disconf:jar:1.0.0:compile
+[INFO] |  +- uyun.whale:common-encryption:jar:1.0.1:compile
+[INFO] |  |  \- org.bouncycastle:bcprov-jdk15on:jar:1.57:compile
+[INFO] |  +- uyun.whale:common-util:jar:1.0.1:compile
+[INFO] |  +- com.baidu.disconf:disconf-client:jar:2.6.36:compile
+[INFO] |  |  +- com.baidu.disconf:disconf-core:jar:2.6.36:compile
+[INFO] |  |  +- commons-io:commons-io:jar:1.4:compile
+[INFO] |  |  +- com.google.code.gson:gson:jar:2.8.5:compile
+[INFO] |  |  +- org.reflections:reflections:jar:0.9.9-RC1:compile
+[INFO] |  |  |  \- dom4j:dom4j:jar:1.6.1:compile
+[INFO] |  |  |     \- xml-apis:xml-apis:jar:1.4.01:compile
+[INFO] |  |  \- org.aspectj:aspectjtools:jar:1.8.13:compile
+[INFO] |  +- uyun.bird.tenant:tenant-api:jar:2.0.6:compile
+[INFO] |  |  \- javax.validation:validation-api:jar:2.0.1.Final:compile
+[INFO] |  +- com.alibaba:druid:jar:1.1.4:compile
+[INFO] |  |  +- com.alibaba:jconsole:jar:1.8.0:system
+[INFO] |  |  \- com.alibaba:tools:jar:1.8.0:system
+[INFO] |  \- org.springframework.boot:spring-boot-configuration-processor:jar:2.0.5.RELEASE:compile
+[INFO] +- org.springframework:spring-aop:jar:5.0.9.RELEASE:compile
+[INFO] |  \- org.springframework:spring-beans:jar:5.0.9.RELEASE:compile
+[INFO] +- org.springframework:spring-web:jar:5.0.9.RELEASE:compile
+[INFO] +- com.demo:demo-bo:jar:1.2.2-SNAPSHOT:compile
+[INFO] |  \- com.demo:demo-service-interface:jar:1.2.2-SNAPSHOT:compile
+[INFO] +- com.demo:demo-common:jar:1.2.2-SNAPSHOT:compile
+[INFO] |  +- uyun.whale:i18n-api:jar:2.0.0:compile
+[INFO] |  +- uyun.whale:i18n-impl:jar:2.0.0:compile
+[INFO] |  +- org.projectlombok:lombok:jar:1.16.22:compile
+[INFO] |  \- com.alibaba:fastjson:jar:1.2.48:compile
+[INFO] \- com.github.online:springboot.sapi.starter:jar:1.3.6.release:compile
+[INFO]    +- org.springframework.boot:spring-boot-starter-web:jar:2.0.5.RELEASE:compile
+[INFO]    |  +- org.springframework.boot:spring-boot-starter-json:jar:2.0.5.RELEASE:compile
+[INFO]    |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:2.9.6:compile
+[INFO]    |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.9.6:compile
+[INFO]    |  |  \- com.fasterxml.jackson.module:jackson-module-parameter-names:jar:2.9.6:compile
+[INFO]    |  +- org.springframework.boot:spring-boot-starter-tomcat:jar:2.0.5.RELEASE:compile
+[INFO]    |  |  +- org.apache.tomcat.embed:tomcat-embed-core:jar:8.5.34:compile
+[INFO]    |  |  +- org.apache.tomcat.embed:tomcat-embed-el:jar:8.5.34:compile
+[INFO]    |  |  \- org.apache.tomcat.embed:tomcat-embed-websocket:jar:8.5.34:compile
+[INFO]    |  +- org.hibernate.validator:hibernate-validator:jar:6.0.12.Final:compile
+[INFO]    |  |  +- org.jboss.logging:jboss-logging:jar:3.3.2.Final:compile
+[INFO]    |  |  \- com.fasterxml:classmate:jar:1.3.4:compile
+[INFO]    |  \- org.springframework:spring-webmvc:jar:5.0.9.RELEASE:compile
+[INFO]    +- com.ibeetl:beetl:jar:2.9.3:compile
+[INFO]    |  \- org.antlr:antlr4-runtime:jar:4.2:compile
+[INFO]    |     +- org.abego.treelayout:org.abego.treelayout.core:jar:1.0.1:compile
+[INFO]    |     \- org.antlr:antlr4-annotations:jar:4.2:compile
+[INFO]    \- org.apache.commons:commons-lang3:jar:3.7:compile
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Building demo-front 1.2.2-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ demo-front ---
+[INFO] Deleting D:\workspace\demo\demo-front\target
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ demo-front ---
+[INFO] com.demo:demo-front:pom:1.2.2-SNAPSHOT
+[INFO] +- uyun.3rd:nginx:tar.gz:1.13.1.180414:compile
+[INFO] \- uyun.demo:front:zip:1.0.0:runtime
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Building demo-tar 1.2.2-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ demo-tar ---
+[INFO] Deleting D:\workspace\demo\demo-tar\target
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ demo-tar ---
+[INFO] com.demo:demo-tar:jar:1.2.2-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] demo ............................................... SUCCESS [  1.323 s]
+[INFO] demo-service-interface ............................. SUCCESS [  0.206 s]
+[INFO] demo-dao ........................................... SUCCESS [  0.703 s]
+[INFO] demo-common ........................................ SUCCESS [  1.150 s]
+[INFO] demo-service ....................................... SUCCESS [  0.655 s]
+[INFO] demo-bo ............................................ SUCCESS [  0.171 s]
+[INFO] demo-web ........................................... SUCCESS [  0.736 s]
+[INFO] demo-front ......................................... SUCCESS [  0.535 s]
+[INFO] demo-tar ........................................... SUCCESS [  0.206 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 6.570 s
+[INFO] Finished at: 2018-11-01T19:09:07+08:00
+[INFO] Final Memory: 45M/412M
+[INFO] ------------------------------------------------------------------------

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/dlbanktar-bo" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/dlbanktar-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/dlbanktar-dao" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/dlbanktar-front" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/dlbanktar-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/dlbanktar-service-interface" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/dlbanktar-tar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/dlbanktar-web" charset="UTF-8" />
+  </component>
+</project>

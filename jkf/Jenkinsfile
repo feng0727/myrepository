@@ -1,0 +1,240 @@
+#!/usr/bin/env groovy
+
+/*
+ * by yangfei1@uyunsoft.cn
+*/
+
+/* Only keep the 10 most recent builds. */
+def projectProperties = [
+        [$class: 'BuildDiscarderProperty', strategy: [$class: 'LogRotator', numToKeepStr: '5']],
+]
+
+properties(projectProperties)
+//定义变量从jenkins参数获取
+def devEnv = env.devEnv.trim()
+def buildFront = env.buildFront.trim()
+def webBranchName = env.webBranchName.trim()
+def serverBranchName = env.serverBranchName.trim()
+def pushOMP2FTP = env.pushOMP2FTP.trim()
+def devVersion = env.devVersion.trim()
+def relVersion = env.relVersion.trim()
+def tagName = env.tagName.trim()
+
+//git 账号密码
+def username = "*********"
+def password = "**********"
+def email = "yangfei1@uyunsoft.cn"
+
+// dev deploy
+def package_name = 'rota-V2.0.R14-all'
+def dev_omp_ip = '10.1.61.101'
+def test_omp_ip = '10.1.62.234'
+def dev_host_ip = '10.1.62.241'
+def test_host_ip = '10.1.62.234'
+
+
+println "***************************************************"
+println "${devEnv} is before"
+println "${buildFront} is before"
+println "${webBranchName} is before"
+println "${serverBranchName} is before"
+println "${pushOMP2FTP} is before"
+println "${devVersion} is before"
+println "${relVersion} is before"
+println "${tagName} is before"
+println "***************************************************"
+
+try {
+
+/* Assuming that wherever we're going to build, we have nodes labelled with
+* "Docker" so we can have our own isolated build environment
+*/
+    node('master') {
+        def mvnHome = tool 'maven-3.3.9'
+        def NODE_HOME = "/home/soft/node-v9.4.0-linux-x64"
+        def SONAR_HOME = "/home/soft/sonarqube-6.5"
+        println "********************111*******************************"
+        env.PATH = "${mvnHome}/bin:${NODE_HOME}/bin:${SONAR_HOME}/bin:${env.PATH}:/usr/local/bin:/bin/sh:/usr/bin:/home/soft/jdk1.8.0_77/bin"
+        println "***************************************************"
+        println env.PATH
+        println "***************************************************"
+        stage('Clean workspace') {
+            /* Running on a fresh Docker instance makes this redundant, but just in
+            * case the host isn't configured to give us a new Docker image for every
+            * build, make sure we clean things before we do anything
+            */
+            deleteDir()
+            sh 'ls -lah'
+        }
+
+        def ph = sh(script: "pwd", returnStdout: true).trim()
+        println "*******ph********"
+        println ph
+        println "*******ph********"
+
+        //以下 url地址，以及名称，请根据实际情况修改
+        stage('Checkout source') {
+//            checkout scm
+
+            //设置git提交账号信息
+            //sh "git config --globa user.name ${username}"
+            //sh "git config --globa user.email ${email}"
+
+            if (buildFront) {
+                sh "mkdir -p mongoose-front"
+                dir('mongoose-front') {
+                    git branch: webBranchName, credentialsId: '07bc03af-667e-4495-92a0-43875eaf2966', url: 'https://git.uyunsoft.cn/rota/mongoose-front.git'
+                }
+            }
+
+            sh "mkdir -p mongoose-server"
+            dir('mongoose-server') {
+                git branch: serverBranchName, credentialsId: '07bc03af-667e-4495-92a0-43875eaf2966', url: 'https://git.uyunsoft.cn/rota/mongoose-server.git'
+            }
+        }
+
+        if (devEnv == "dev") {
+            println "*************************env dev**************************"
+            stage('dev') {
+                if (buildFront) {
+                    sh 'npm --version'
+                    sh "cd ${ph}/mongoose-front && source /etc/profile && npm config set registry http://rnpm.uyundev.cn && npm install && npm run build"
+                }
+                sh "cd ${ph}/mongoose-server && mvn clean install -Dmaven.test.skip=true"
+                sh "cd ${ph}/mongoose-server && mvn sonar:sonar"
+            }
+
+            // build omp-deploy
+            stage("omp-deploy") {
+                sh "mv ${ph}/mongoose-server/mongoose-tar/target/${package_name}.tar.gz /home/uyunent/package/${package_name}-${env.BUILD_ID}.tar.gz"
+                sh "echo ${package_name}-${env.BUILD_ID}tar.gz  mv...."
+                if (pushOMP2FTP) {
+                    sh "expect /home/uyunent/sync2ftp.sh ${package_name}-${env.BUILD_ID}.tar.gz uyun-ent/rota/packages"
+                    println 'upload is ok'
+                }
+                //调用Omp接口部署
+                sh "python /home/uyunent/cluster_install.py ${dev_omp_ip} /home/uyunent/package/${package_name}-${env.BUILD_ID}.tar.gz ${dev_host_ip}"
+
+            }
+
+            /*
+            stage('docker-build') {
+                sh 'docker-compose down'
+            }
+
+            stage('deploy-docker') {
+                sh 'docker-compose up -d'
+            }*/
+
+        } else if (devEnv == "test") {
+            println "*************************env test**************************"
+            stage('test') {
+                sh 'npm --version'
+                sh "cd ${ph}/mongoose-front && source /etc/profile && npm config set registry http://rnpm.uyundev.cn && npm install && npm run build"
+                sh "cd ${ph}/mongoose-server && mvn clean install -Dmaven.test.skip=true"
+                sh "cd ${ph}/mongoose-server && mvn sonar:sonar"
+            }
+
+            // build omp-deploy
+            stage("omp-deploy") {
+                sh "mv ${ph}/mongoose-server/mongoose-tar/target/${package_name}.tar.gz /home/uyunent/package/${package_name}-${env.BUILD_ID}.tar.gz"
+                sh "echo ${package_name}-${env.BUILD_ID}tar.gz  mv...."
+                if (pushOMP2FTP) {
+                    sh "expect /home/uyunent/sync2ftp.sh ${package_name}-${env.BUILD_ID}.tar.gz uyun-ent/rota/packages"
+                    println 'upload is ok'
+                }
+                //调用Omp接口部署
+                sh "python /home/uyunent/cluster_install.py ${test_omp_ip} /home/uyunent/package/${package_name}-${env.BUILD_ID}.tar.gz ${test_host_ip}"
+
+            }
+            /*
+            stage('docker-build') {
+                sh 'docker-compose down'
+            }
+
+            stage('deploy-docker') {
+                sh 'docker-compose up -d'
+            }*/
+
+        } else if (devEnv == "prod") {
+            println "*************************env prod**************************"
+            stage('prod') {
+                sh 'npm --version'
+                sh "cd ${ph}/mongoose-front && source /etc/profile && npm config set registry http://rnpm.uyundev.cn && npm install && npm run build"
+
+                sh 'mongoose-server'
+                sh "cd ${ph}/mongoose-server && mvn clean install -Dmaven.test.skip=true"
+            }
+
+            stage("omp-release") {
+                //如果存在相同tag则本地删除以及远程tag
+                tag = sh(script: "git tag -l ${tagName}", returnStdout: true).trim()
+                if (tag) {
+                    sh "git tag -d ${tagName}"
+                    sh "expect jkf/push.sh deltag ${username} ${password} ${tagName} "
+                }
+                allPar = "cd ${ph}/mongoose-server && echo -e '\n'|mvn clean release:prepare release:perform -DdevelopmentVersion=${devVersion} -DreleaseVersion=${relVersion} -Dtag=${tagName} -Dusername=${username} -Dpassword=${password} -DpreparationGoals=clean install"
+                sh allPar
+            }
+
+            // build omp-deploy
+
+            // build omp-deploy
+            stage("omp-deploy") {
+                sh "mv mongoose-tar/target/${package_name}.tar.gz /home/uyunent/package/${package_name}-${env.BUILD_ID}.tar.gz"
+                sh 'echo tar.gz  mv....'
+                if (pushOMP2FTP) {
+                    sh "expect /home/uyunent/sync2rmsftp.sh ${package_name}-${env.BUILD_ID}.tar.gz /home/uyunent/packages"
+                    sh 'upload is ok'
+                }
+
+                //调用Omp接口部署
+//                sh 'cd /home/uyunent/package'
+//                sh "cd $WORKSPACE"
+//                sh "python /home/uyunent/cluster_install.py ${omp_ip} ${package_name}-${env.BUILD_ID}.tar.gz ${host_ip}"
+            }
+
+        } else {
+            println "unknown env"
+        }
+    }
+    dingding(1)
+}
+catch (exc) {
+    dingding(0)
+    throw exc
+}
+
+/**
+ * @desc http-request-plugin 发送钉钉消息
+ * @param exc
+ * @return
+ */
+def dingding(status) {
+    println status
+    //这里添加钉钉通知地址，建议设置群，通知
+    def dingUrl = "https://oapi.dingtalk.com/robot/send?access_token=*********************************"
+    def st = ""
+    if (status == 0) {
+        st = "失败！"
+    } else if (status == 1) {
+        st = "成功！"
+    }
+    def json = """
+            {
+                "msgtype": "link",
+                "link": {
+                "text":"项目名称: ${env.JOB_NAME}, 项目更新进度: ${env.BUILD_NUMBER}，部署环境:${devEnv},前端分支名称：${
+        webBranchName
+    },后端分支名称：${serverBranchName}",
+                "title": "资产管理构建通知,构建:${st}",
+                "messageUrl": "${env.BUILD_URL}"
+            }
+            }
+    """
+    println json
+    def response = httpRequest acceptType: 'APPLICATION_JSON_UTF8', contentType: 'APPLICATION_JSON_UTF8', httpMode: 'POST', requestBody: json, url: "${dingUrl}"
+    println("Status: " + response.status)
+    println("Content: " + response.content)
+}
+
